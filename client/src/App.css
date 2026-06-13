@@ -1,0 +1,138 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0f172a;
+    color: white;
+}
+
+.app {
+    padding: 20px;
+    text-align: center;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.card {
+    background: #1e293b;
+    border-radius: 15px;
+    padding: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.card h2 {
+    margin: 10px 0 5px;
+}
+
+.card h3 {
+    color: #22c55e;
+}
+
+.card p {
+    color: #cbd5e1;
+}
+
+.card small {
+    color: #94a3b8;
+}
+
+.card button {
+    width: 100%;
+    margin-top: 15px;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background: #0ea5e9;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.card button:hover {
+    background: #0284c7;
+}
+
+.nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px;
+}
+
+.nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.auth {
+    width: 300px;
+    margin: 100px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.auth input {
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+}
+
+.auth button {
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background: #0ea5e9;
+    color: white;
+}
+
+.auth-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #021028;
+}
+
+.auth-box {
+    background: #0b1d39;
+    padding: 40px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 350px;
+}
+
+.auth-box h1 {
+    color: white;
+    text-align: center;
+}
+
+.auth-box input {
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+}
+
+.auth-box button {
+    padding: 12px;
+    border: none;
+    background: #1ec8ff;
+    color: black;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+}
