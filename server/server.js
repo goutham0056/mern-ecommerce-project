@@ -1,14 +1,15 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+require('dns').setDefaultResultOrder('ipv4first');
 require("dotenv").config();
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
-const productRoutes = require("./routes/ProductRoutes");
 
+const productRoutes = require("./routes/ProductRoutes");
 app.use("/api/products", productRoutes);
 
 mongoose
@@ -19,6 +20,7 @@ mongoose
 app.get("/", (req, res) => {
     res.send("ShopSphere API Running");
 });
+
 const Product = require("./models/product");
 
 app.get("/add", async(req, res) => {
@@ -35,27 +37,17 @@ app.get("/add", async(req, res) => {
     res.send("Product Added");
 });
 
-app.get("/api/products", (req, res) => {
-    res.json([{
-            id: 1,
-            name: "Laptop",
-            price: 55000,
-            image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853",
-        },
-        {
-            id: 2,
-            name: "Headphones",
-            price: 2500,
-            image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e",
-        },
-        {
-            id: 3,
-            name: "Smart Watch",
-            price: 4000,
-            image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30",
-        },
-    ]);
+
+// 🔥 DATABASE PRODUCTS FETCH
+app.get("/api/products", async(req, res) => {
+    try {
+        const products = await Product.find();
+        res.json(products);
+    } catch (error) {
+        res.status(500).json({ message: "Server Error" });
+    }
 });
+
 
 const PORT = process.env.PORT || 5000;
 
